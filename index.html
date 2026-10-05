@@ -1,64 +1,97 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PinjamKampus - Peminjaman Alat & Lab Kampus</title>
-  <link rel="stylesheet" href="style.css">
+  <!-- CDN Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased min-h-screen flex flex-col justify-between">
 
   <!-- HEADER / NAVBAR -->
-  <header class="navbar">
-    <div class="logo">
-      <h2>PinjamKampus</h2>
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="logo">
+        <h2 class="text-2xl font-bold text-blue-600">PinjamKampus</h2>
+      </div>
+      <nav class="flex items-center space-x-6 font-medium">
+        <a href="#beranda" class="hover:text-blue-600 transition">Beranda</a>
+        <a href="#katalog" class="hover:text-blue-600 transition">Katalog Alat</a>
+        <a href="#pinjam" class="hover:text-blue-600 transition">Form Pinjam</a>
+        <a href="#masuk" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Masuk</a>
+      </nav>
     </div>
-    <nav>
-      <a href="#beranda">Beranda</a>
-      <a href="#katalog">Katalog Alat</a>
-      <a href="#pinjam">Form Pinjam</a>
-      <a href="#masuk" class="btn-login">Masuk</a>
-    </nav>
   </header>
 
   <!-- MAIN CONTENT -->
-  <main>
+  <main class="mb-auto">
     <!-- HERO SECTION -->
-    <section id="beranda" class="hero">
-      <div class="hero-text">
-        <h1>Pinjam Alat & Ruang Lab Kampus Jadi Lebih Mudah</h1>
-        <p>Cek ketersediaan inventaris dan ajukan izin peminjaman secara online tanpa antre.</p>
-        <a href="#katalog" class="btn-primary">Lihat Katalog Alat</a>
+    <section id="beranda" class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-20 px-4 text-center">
+      <div class="max-w-3xl mx-auto">
+        <h1 id="hero-title" class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
+          Pinjam Alat & Ruang Lab Kampus Jadi Lebih Mudah
+        </h1>
+        <p class="text-lg md:text-xl mb-8 text-blue-100">
+          Cek ketersediaan inventaris dan ajukan izin peminjaman secara online tanpa antre.
+        </p>
+        <div>
+          <button id="btn-katalog" class="bg-yellow-400 text-gray-900 font-bold px-6 py-3 rounded-lg shadow-lg hover:bg-yellow-300 transition transform hover:-translate-y-0.5 inline-flex items-center gap-2">
+            Lihat Katalog Alat <span>→</span>
+          </button>
+        </div>
       </div>
     </section>
 
     <!-- KATALOG SECTION -->
-    <section id="katalog" class="katalog">
-      <h2>Katalog Inventaris Lab</h2>
-      <div class="card-grid">
-        <div class="card">
-          <div class="card-icon">💻</div>
-          <h3>Proyektor & Screen</h3>
-          <p>Tersedia 5 Unit</p>
+    <section id="katalog" class="max-w-6xl mx-auto px-4 py-16">
+      <h2 class="text-3xl font-bold text-center mb-10 text-gray-800">Katalog Inventaris Lab</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition transform hover:-translate-y-1 text-center">
+          <div class="text-5xl mb-4">💻</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Proyektor & Screen</h3>
+          <p class="text-gray-600 font-medium mb-4">Tersedia 5 Unit</p>
+          <button class="btn-detail bg-blue-50 text-blue-600 hover:bg-blue-100 px-4 py-2 rounded-lg text-sm font-semibold transition" data-nama="Proyektor & Screen" data-stok="5 Unit">Detail Alat</button>
         </div>
-        <div class="card">
-          <div class="card-icon">🔬</div>
-          <h3>Mikroskop Digital</h3>
-          <p>Tersedia 8 Unit</p>
+        
+        <!-- Card 2 -->
+        <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition transform hover:-translate-y-1 text-center">
+          <div class="text-5xl mb-4">🔬</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Mikroskop Digital</h3>
+          <p class="text-gray-600 font-medium mb-4">Tersedia 8 Unit</p>
+          <button class="btn-detail bg-blue-50 text-blue-600 hover:bg-blue-100 px-4 py-2 rounded-lg text-sm font-semibold transition" data-nama="Mikroskop Digital" data-stok="8 Unit">Detail Alat</button>
         </div>
-        <div class="card">
-          <div class="card-icon">🖥️</div>
-          <h3>Lab Komputer Lanjut</h3>
-          <p>Kapasitas 40 Kursi</p>
+        
+        <!-- Card 3 -->
+        <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100 hover:shadow-xl transition transform hover:-translate-y-1 text-center">
+          <div class="text-5xl mb-4">🖥</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Lab Komputer Lanjut</h3>
+          <p class="text-gray-600 font-medium mb-4">Kapasitas 40 Kursi</p>
+          <button class="btn-detail bg-blue-50 text-blue-600 hover:bg-blue-100 px-4 py-2 rounded-lg text-sm font-semibold transition" data-nama="Lab Komputer Lanjut" data-stok="Kapasitas 40 Kursi">Detail Alat</button>
         </div>
+      </div>
+
+      <!-- AREA DETAIL PROGRAM / ALAT -->
+      <div id="detail-section" class="mt-12 bg-blue-50 border border-blue-200 rounded-2xl p-6 hidden transition-all">
+        <div class="flex justify-between items-start mb-4">
+          <h3 id="detail-title" class="text-2xl font-bold text-blue-900">Detail Informasi</h3>
+          <button id="btn-close-detail" class="text-gray-400 hover:text-gray-600 font-bold text-xl">&times;</button>
+        </div>
+        <p id="detail-desc" class="text-gray-700 leading-relaxed">
+          Pilih salah satu item di atas untuk melihat informasi detail peminjaman.
+        </p>
       </div>
     </section>
   </main>
 
   <!-- FOOTER -->
-  <footer>
+  <footer class="bg-gray-800 text-white text-center py-6 mt-10">
     <p>&copy; 2026 PinjamKampus. All rights reserved.</p>
   </footer>
 
+  <!-- FILE JAVASCRIPT -->
+  <script src="script.js"></script>
 </body>
 </html>
